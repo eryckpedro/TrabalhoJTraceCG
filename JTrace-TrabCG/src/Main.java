@@ -1,10 +1,8 @@
-package jtrace.trab.cg;
 
 public class Main {
 
 	public static void main(String[] args) {
-		
-		System.out.println("teste");
+		// TODO Auto-generated method stub
 
 	}
 
