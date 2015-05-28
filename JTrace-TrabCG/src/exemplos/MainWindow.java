@@ -8,6 +8,7 @@ import javax.swing.JPanel;
 import org.jtrace.Scene;
 import org.jtrace.Tracer;
 import org.jtrace.ViewPlane;
+import org.jtrace.interceptor.ShadowInterceptor;
 import org.jtrace.shader.Shaders;
 import org.jtrace.swing.TracerPanel;
 
@@ -38,6 +39,7 @@ public class MainWindow extends JFrame {
   private JPanel createTracerPanel() {
 	Tracer tracer = new Tracer();
 	
+	tracer.addInterceptors(new ShadowInterceptor());
 	tracer.addShaders(Shaders.ambientShader(), Shaders.diffuseShader());
 	  
     return new TracerPanel(tracer, scene, new ViewPlane(500, 500), 500, 500);

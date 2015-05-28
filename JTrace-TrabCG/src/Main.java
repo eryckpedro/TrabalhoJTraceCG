@@ -17,7 +17,7 @@ import exemplos.MainWindow;
 
 public class Main
 {
-	private static MainWindow window = new MainWindow(createScene());
+	private static Window window = new Window(createScene());
 	
 	public static void main(String[] args){
 		window.setVisible(true);
@@ -27,36 +27,32 @@ public class Main
 	public static Scene createScene()
 	{
 		Point3D lookAt = new Point3D(0, 0, 0);
-        Point3D eye = new Point3D(0, 0, -20);
+        Point3D eye = new Point3D(0, 5, -100);
         Vector3D up = Vector3D.UNIT_Y;
         
         
         double sphereRadius = 7.5;
         
-        Point3D centerRed = new Point3D(-8.0, 0, 0);
-        Point3D centerYellow = new Point3D(8.0, 0, 0);
+        Point3D centerRed = new Point3D(-10.0, 0, 0);
+        Point3D centerYellow = new Point3D(10.0, 0, 0);
         
-        Point3D lightPos = new Point3D(0, 50, -20);
+        Point3D lightPos = new Point3D(-100, 200, -90);
         
         
         Point3D planePoint = new Point3D(0, -sphereRadius, 0);
         Vector3D planeNormal = Vector3D.UNIT_Y;
         
-        ReflectanceCoefficient kAmbient = new ReflectanceCoefficient(0.07, 0.07, 0.07);
-        ReflectanceCoefficient kDiffuse = new ReflectanceCoefficient(0.3, 0.3, 0.3);
+     
         
-        Material redMaterial = new Material(ColorRGB.RED, kAmbient, kDiffuse);
-        Material yellowMaterial = new Material(ColorRGB.YELLOW, kAmbient, kDiffuse);
-        
-        Sphere reddie = new Sphere(centerRed, sphereRadius, redMaterial);
-        Sphere yellowie = new Sphere(centerYellow, sphereRadius, yellowMaterial);
+        Sphere reddie = new Sphere(centerRed, sphereRadius, Materials.metallic(ColorRGB.RED));
+        Sphere yellowie = new Sphere(centerYellow, sphereRadius, Materials.metallic(ColorRGB.YELLOW));
         
         Plane plane = new Plane(planePoint, planeNormal, Materials.matte(ColorRGB.WHITE));
         
         Light light = new PointLight(lightPos);
         
         Camera pinHoleCamera = new PinHoleCamera(eye, lookAt, up);
-        pinHoleCamera.setZoomFactor(7.5);
+        pinHoleCamera.setZoomFactor(10);
         return new Scene().add(reddie, yellowie, plane).add(light).setCamera(pinHoleCamera);
         
 	}
