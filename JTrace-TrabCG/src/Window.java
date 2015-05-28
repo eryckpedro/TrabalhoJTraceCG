@@ -10,6 +10,9 @@ import org.jtrace.interceptor.ShadowInterceptor;
 import org.jtrace.shader.Shaders;
 import org.jtrace.swing.TracerPanel;
 
+import classesExtendidas.MyTracer;
+import classesExtendidas.MyTracerPanel;
+
 
 public class Window extends JFrame
 {
@@ -41,12 +44,12 @@ public class Window extends JFrame
 	  private JPanel createTracerPanel() 
 	  {
 		double kSpecular = 20;  
-		Tracer tracer = new Tracer();
+		MyTracer tracer = new MyTracer();
 		
 		tracer.addInterceptors(new ShadowInterceptor());
 		tracer.addShaders(Shaders.ambientShader(), Shaders.diffuseShader(), Shaders.specularShader(kSpecular));
 		  
-	    return new TracerPanel(tracer, scene, new ViewPlane(500, 500), 500, 500);
+	    return new MyTracerPanel(tracer, scene, new ViewPlane(500, 500), 500, 500);
 	  }
 
 }

@@ -30,7 +30,6 @@ public class Main
         Point3D eye = new Point3D(0, 5, -100);
         Vector3D up = Vector3D.UNIT_Y;
         
-        
         double sphereRadius = 7.5;
         
         Point3D centerRed = new Point3D(-10.0, 0, 0);
@@ -38,11 +37,8 @@ public class Main
         
         Point3D lightPos = new Point3D(-100, 200, -90);
         
-        
         Point3D planePoint = new Point3D(0, -sphereRadius, 0);
         Vector3D planeNormal = Vector3D.UNIT_Y;
-        
-     
         
         Sphere reddie = new Sphere(centerRed, sphereRadius, Materials.metallic(ColorRGB.RED));
         Sphere yellowie = new Sphere(centerYellow, sphereRadius, Materials.metallic(ColorRGB.YELLOW));
@@ -51,8 +47,10 @@ public class Main
         
         Light light = new PointLight(lightPos);
         
+        
         Camera pinHoleCamera = new PinHoleCamera(eye, lookAt, up);
         pinHoleCamera.setZoomFactor(10);
+        
         return new Scene().add(reddie, yellowie, plane).add(light).setCamera(pinHoleCamera);
         
 	}
