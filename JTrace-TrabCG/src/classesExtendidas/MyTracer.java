@@ -18,13 +18,18 @@ public class MyTracer extends Tracer {
         fireStart(viewPlane);
         initInterceptors(scene);
         
-        for (int r = 0; r < vres; r++) {
-            for (int c = 0; c < hres; c++) {
                 final Jay jay = camera.createJay(r, c, vres, hres);
 
                 final ColorRGB color = trace(scene, jay);
-
-                fireAfterTrace(color, c, r);
+                
+            	for( int i = r; i < vres; i++)
+            	{
+            		for( int j = c; j < hres; j++)
+            		{
+            			fireAfterTrace(color, j, i);
+            		}
+            	}
+           
             }
         }
 
