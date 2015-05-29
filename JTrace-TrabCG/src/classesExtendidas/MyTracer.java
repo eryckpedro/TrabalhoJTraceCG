@@ -32,11 +32,11 @@ public class MyTracer extends Tracer {
 
                 final ColorRGB color = trace(scene, jay);
                 
-            	for( int i = r; i < vres; i++)
+            	for( int j = r; j < vres && j < r + yFrag; j++)
             	{
-            		for( int j = c; j < hres; j++)
+            		for( int i = c; i < hres && i < c + xFrag; i++)
             		{
-            			fireAfterTrace(color, j, i);
+            			fireAfterTrace(color, i, j);
             		}
             	}
             }
