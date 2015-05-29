@@ -18,11 +18,36 @@ public class MyTracer extends Tracer {
         fireStart(viewPlane);
         initInterceptors(scene);
         
-        //int resPixel = 16;
-        
-        int xFrag = vres / resPixel;
+        if( resPixel > 0)
+        	pixelate(scene, resPixel, hres, vres, camera);
+        else
+        	classicRender(scene, hres, vres, camera);
+        	
+
+        fireFinish();
+	}
+	
+	//original render method from JTrace
+	private void classicRender(Scene scene, final int hres, final int vres,
+			final Camera camera) {
+		for (int r = 0; r < vres; r++) 
+        {
+            for (int c = 0; c < hres; c++) 
+            {            	            	
+                final Jay jay = camera.createJay(r, c, vres, hres);
+
+                final ColorRGB color = trace(scene, jay);
+                
+                fireAfterTrace(color, c, r);
+            }
+        }
+	}
+	
+	private void pixelate(Scene scene, int resPixel, final int hres,
+			final int vres, final Camera camera) {
+		
+		int xFrag = vres / resPixel;
         int yFrag = hres / resPixel;
-        
         
         for (int r = 0; r < vres; r+= xFrag) 
         {
@@ -32,7 +57,7 @@ public class MyTracer extends Tracer {
 
                 final ColorRGB color = trace(scene, jay);
                 
-            	for( int j = r; j < vres && j < r + yFrag; j++)
+                for( int j = r; j < vres && j < r + yFrag; j++)
             	{
             		for( int i = c; i < hres && i < c + xFrag; i++)
             		{
@@ -41,8 +66,6 @@ public class MyTracer extends Tracer {
             	}
             }
         }
-
-        fireFinish();
 	}
 
 }
