@@ -9,7 +9,7 @@ import org.jtrace.primitives.ColorRGB;
 
 public class MyTracer extends Tracer {
 	
-	public void render(Scene scene, ViewPlane viewPlane)
+	public void render(Scene scene, ViewPlane viewPlane, int resPixel)
 	{
 		final int hres = viewPlane.getHres();
         final int vres = viewPlane.getVres();
@@ -18,7 +18,7 @@ public class MyTracer extends Tracer {
         fireStart(viewPlane);
         initInterceptors(scene);
         
-        int resPixel = 16;
+        //int resPixel = 16;
         
         int xFrag = vres / resPixel;
         int yFrag = hres / resPixel;

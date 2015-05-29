@@ -22,7 +22,7 @@ public class MyTracerPanel extends TracerPanel {
 
 	private static final long serialVersionUID = -5825078637417276490L;
 
-	private Tracer tracer;
+	private MyTracer tracer;
 	private Scene scene;
 	private ViewPlane viewPlane;
 
@@ -32,11 +32,11 @@ public class MyTracerPanel extends TracerPanel {
 	private int width;
 	private DrawablePanel drawablePanel;
 
-	public MyTracerPanel(Tracer tracer, Scene scene, ViewPlane viewPlane) {
+	public MyTracerPanel(MyTracer tracer, Scene scene, ViewPlane viewPlane) {
 		super(tracer, scene, viewPlane, 300, 300);
 	}
 
-	public MyTracerPanel(Tracer tracer, Scene scene, ViewPlane viewPlane,
+	public MyTracerPanel(MyTracer tracer, Scene scene, ViewPlane viewPlane,
 			int width, int height) {
 		super(tracer, scene, viewPlane, width, height);
 
@@ -75,7 +75,7 @@ public class MyTracerPanel extends TracerPanel {
 	        new Thread() {
 	          @Override
 	          public void run() {
-	            tracer.render(scene, viewPlane);
+	            tracer.render(scene, viewPlane, 16);
 	          }
 	        }.start();
 	      }
