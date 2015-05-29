@@ -1,4 +1,3 @@
-import org.jtrace.Material;
 import org.jtrace.Materials;
 import org.jtrace.Scene;
 import org.jtrace.cameras.Camera;
@@ -9,10 +8,7 @@ import org.jtrace.lights.Light;
 import org.jtrace.lights.PointLight;
 import org.jtrace.primitives.ColorRGB;
 import org.jtrace.primitives.Point3D;
-import org.jtrace.primitives.ReflectanceCoefficient;
 import org.jtrace.primitives.Vector3D;
-
-import exemplos.MainWindow;
 
 
 public class Main

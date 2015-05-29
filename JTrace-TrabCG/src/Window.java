@@ -26,6 +26,7 @@ public class Window extends JFrame
 	    setSize(1080, 720);
 	    setTitle("TrabalhoCG JTrace");
 	    setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	    setLocationRelativeTo(null);
 	    
 	    this.scene = scene;
 
