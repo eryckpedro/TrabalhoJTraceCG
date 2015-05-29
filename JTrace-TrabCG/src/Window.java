@@ -23,7 +23,7 @@ public class Window extends JFrame
 	  
 	  public Window(Scene scene) 
 	  {
-	    setSize(700, 650);
+	    setSize(1080, 720);
 	    setTitle("TrabalhoCG JTrace");
 	    setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	    
@@ -49,7 +49,7 @@ public class Window extends JFrame
 		tracer.addInterceptors(new ShadowInterceptor());
 		tracer.addShaders(Shaders.ambientShader(), Shaders.diffuseShader(), Shaders.specularShader(kSpecular));
 		  
-	    return new MyTracerPanel(tracer, scene, new ViewPlane(500, 500), 500, 500);
+	    return new MyTracerPanel(tracer, scene, new ViewPlane(800, 800), 800, 800);
 	  }
 
 }
