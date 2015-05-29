@@ -75,7 +75,7 @@ public class MyTracerPanel extends TracerPanel {
 	        new Thread() {
 	          @Override
 	          public void run() {
-	            tracer.render(scene, viewPlane, 256);
+	            tracer.render(scene, viewPlane, 64);
 	          }
 	        }.start();
 	      }
