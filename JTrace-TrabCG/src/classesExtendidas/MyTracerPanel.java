@@ -222,7 +222,7 @@ public class MyTracerPanel extends TracerPanel {
 	    JScrollPane scrollPane = new JScrollPane(drawablePanel);
 	    
 	    
-	    //add(statusPanel, BorderLayout.PAGE_END);
+	    add(statusPanel, BorderLayout.PAGE_END);
 	    add(scrollPane, BorderLayout.CENTER);
 	    //add(drawablePanel, BorderLayout.CENTER);
 	    add(buttonArea, BorderLayout.PAGE_START);

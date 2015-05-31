@@ -29,7 +29,7 @@ public class Main
         double sphereRadius = 7.5;
         
         Point3D centerRed = new Point3D(-10.0, 0, 0);
-        Point3D centerYellow = new Point3D(10.0, 0, 0);
+        Point3D centerYellow = new Point3D(10.0, 0, -25.0);
         
         Point3D lightPos = new Point3D(-100, 200, -90);
         

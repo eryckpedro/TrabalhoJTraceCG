@@ -18,7 +18,7 @@ public class MyTracer extends Tracer {
         fireStart(viewPlane);
         initInterceptors(scene);
         
-        if( resPixel > 0)
+        if( resPixel > 0 )
         	pixelate(scene, resPixel, hres, vres, camera);
         else
         	classicRender(scene, hres, vres, camera);
